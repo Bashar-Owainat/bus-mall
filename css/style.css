@@ -1,0 +1,18 @@
+#imgs{
+    display: inline-block;
+    
+}
+#left{
+    width: 200px;
+    height: 200px;
+}
+
+#right{
+    width: 200px;
+    height: 200px;
+}
+
+#middle{
+    width: 200px;
+    height: 200px;
+}
