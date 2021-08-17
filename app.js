@@ -15,6 +15,25 @@ let maxAttemps = 25;
 let votes = [];
 let views = [];
 
+
+
+function saveToLocalStorage(){
+    let votesStr = JSON.stringify(products);
+    localStorage.setItem('ProductsData', votesStr);
+
+}
+
+function readFromStorage(){
+    let strObj = localStorage.getItem('ProductsData');
+    let normalObj = JSON.parse(strObj);
+
+    if(normalObj){
+        products = normalObj;
+        clickMe();
+    }
+}
+readFromStorage();
+
 function ProductImage(productName){
     this.PName = productName.split('.')[0];
     this.PImage = `img/${productName}`;
@@ -104,6 +123,7 @@ function clickCounter(event){
 showResults.addEventListener('click', clickMe);
 
     function clickMe(){
+        
         for (let i= 0; i< products.length; i++) {
            let liEl = document.createElement('li');
            result.appendChild(liEl);
@@ -112,6 +132,7 @@ showResults.addEventListener('click', clickMe);
             views.push([products[i].views]);
         }
         chartRender();
+        saveToLocalStorage();
         showResults.removeEventListener('click', clickMe);
         
         leftImg.removeEventListener('click', clickCounter);
@@ -169,6 +190,7 @@ function chartRender(){
             }
         }
     });
+    
 }
 
 
