@@ -22,6 +22,7 @@ function saveToLocalStorage(){
     localStorage.setItem('ProductsData', votesStr);
 
 }
+// you can call saveToLocalStorage() in constructor or when you add new object
 
 function readFromStorage(){
     let strObj = localStorage.getItem('ProductsData');
